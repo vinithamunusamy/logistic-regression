@@ -1,0 +1,24 @@
+Train Data
+   monthIncome  dept
+2           30    12
+9           65    28
+4            5    25
+3           40    20
+6           35    15
+Test Data
+   monthIncome  dept
+8           55    22
+1           25    10
+5           60    30
+0           20     5
+7           45    18
+Prediction Input
+   monthIncome  dept
+8           55    22
+1           25    10
+5           60    30
+0           20     5
+7           45    18
+Prediction Result
+[1 0 1 0 1]
+Accuracy : 1.0
