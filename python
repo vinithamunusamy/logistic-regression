@@ -1,0 +1,29 @@
+data={
+     "monthIncome":[20,25,30,40,5,60,35,45,55,65], 
+     "dept":[5,10,12,20,25,30,15,18,22,28],
+     "default":[0,0,0,1,1,1,0,1,1,1]
+ }
+df = pd.DataFrame(data)
+x = df[["monthIncome","dept"]]
+y = df["default"]
+x_train,x_test,y_train,y_test = train_test_split(x,y,test_size=0.5, random_state=42)
+print("Train Data")
+print(x_train)
+print("Test Data")
+print(x_test)
+
+log_reg = LogisticRegression()
+log_reg.fit(x_train,y_train)
+
+print("Prediction Input")
+print(x_test)
+y_pred = log_reg.predict(x_test)
+print("Prediction Result")
+print(y_pred)
+
+accuracy = accuracy_score(y_test,y_pred)
+print("Accuracy :",accuracy)
+
+cm = confusion_matrix(y_test, y_pred, labels=log_reg.classes_)
+ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=log_reg.classes_).plot()
+plt.show()
